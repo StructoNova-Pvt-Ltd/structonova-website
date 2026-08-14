@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- A1. PAGE SETTINGS
+  This block controls the browser title, search description, mobile scaling and shared files.
+  Change the text inside <title> to change the browser-tab title.
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="StructoNova Pvt. Ltd. executes structural repairs, rehabilitation, retrofitting, strengthening, corrosion protection, grouting, industrial flooring and waterproofing.">
+  <title>StructoNova Pvt. Ltd. | Structural Repair and Rehabilitation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-page="home">
+  <!-- A2. HEADER
+  This header remains visible while the visitor scrolls.
+  The menu underline follows the section currently visible on the page.
+  -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo-link" href="#home" aria-label="StructoNova home">
+        <img src="assets/logo.png" alt="StructoNova Pvt. Ltd." class="site-logo">
+      </a>
+
+      <!-- This button opens the menu on phones and tablets. -->
+      <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" id="main-navigation" aria-label="Main navigation">
+        <a class="active" href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#clients">Clients</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- B1. HERO SECTION
+    This is the first section visitors see.
+    On a desktop, the text sits on a white diagonal panel and the project slideshow fills the right side.
+    On a phone, the text and photograph are placed one above the other for easy reading.
+    -->
+    <section class="hero tracked-section" id="home" data-nav-target="#home">
+      <!-- B1.5 PROJECT SLIDESHOW
+      Each <figure> block below is one project photograph.
+      Change the order by moving a complete <figure> block up or down.
+      The first photograph must keep the word "active" in its class.
+      -->
+      <div class="hero-slideshow" aria-label="Selected structural projects">
+        <figure class="hero-slide active" aria-hidden="false">
+          <img src="assets/hero-project-01.webp" alt="Carbon-fibre strengthening applied below a concrete slab" fetchpriority="high" decoding="async">
+        </figure>
+        <figure class="hero-slide" aria-hidden="true">
+          <img src="assets/hero-project-02.webp" alt="Concrete column repair in progress" loading="lazy" decoding="async">
+        </figure>
+        <figure class="hero-slide" aria-hidden="true">
+          <img src="assets/hero-project-03.webp" alt="Industrial flooring installation inside a plant" loading="lazy" decoding="async">
+        </figure>
+        <figure class="hero-slide" aria-hidden="true">
+          <img src="assets/hero-project-04.webp" alt="Finished joint detail in an industrial floor" loading="lazy" decoding="async">
+        </figure>
+        <figure class="hero-slide" aria-hidden="true">
+          <img src="assets/hero-project-05.webp" alt="Exposed reinforcement during concrete repair" loading="lazy" decoding="async">
+        </figure>
+        <figure class="hero-slide" aria-hidden="true">
+          <img src="assets/hero-project-06.webp" alt="Completed high-performance industrial floor" loading="lazy" decoding="async">
+        </figure>
+        <figure class="hero-slide" aria-hidden="true">
+          <img src="assets/hero-project-07.webp" alt="Repair work on an industrial building facade" loading="lazy" decoding="async">
+        </figure>
+        <figure class="hero-slide" aria-hidden="true">
+          <img src="assets/hero-project-08.webp" alt="Bridge rehabilitation work in progress" loading="lazy" decoding="async">
+        </figure>
+        <figure class="hero-slide" aria-hidden="true">
+          <img src="assets/hero-project-09.webp" alt="Completed epoxy flooring in an industrial facility" loading="lazy" decoding="async">
+        </figure>
+        <figure class="hero-slide" aria-hidden="true">
+          <img src="assets/hero-project-10.webp" alt="Concrete surface preparation before repair" loading="lazy" decoding="async">
+        </figure>
+        <figure class="hero-slide" aria-hidden="true">
+          <img src="assets/hero-project-11.webp" alt="Protective coating work inside a confined structure" loading="lazy" decoding="async">
+        </figure>
+        <figure class="hero-slide" aria-hidden="true">
+          <img src="assets/hero-project-12.webp" alt="Internal protective lining of a circular structure" loading="lazy" decoding="async">
+        </figure>
+        <figure class="hero-slide" aria-hidden="true">
+          <img src="assets/hero-project-13.webp" alt="Completed floor marking and coating work" loading="lazy" decoding="async">
+        </figure>
+        <figure class="hero-slide" aria-hidden="true">
+          <img src="assets/hero-project-14.webp" alt="Damaged concrete member prepared for rehabilitation" loading="lazy" decoding="async">
+        </figure>
+        <figure class="hero-slide" aria-hidden="true">
+          <img src="assets/hero-project-15.webp" alt="External strengthening work on a multi-storey structure" loading="lazy" decoding="async">
+        </figure>
+        <figure class="hero-slide" aria-hidden="true">
+          <img src="assets/hero-project-16.webp" alt="Structural strengthening below a concrete beam" loading="lazy" decoding="async">
+        </figure>
+        <figure class="hero-slide" aria-hidden="true">
+          <img src="assets/hero-project-17.webp" alt="Reinforcement installation for concrete rehabilitation" loading="lazy" decoding="async">
+        </figure>
+        <figure class="hero-slide" aria-hidden="true">
+          <img src="assets/hero-project-18.webp" alt="Services and repair work below an industrial slab" loading="lazy" decoding="async">
+        </figure>
+
+      </div>
+
+      <!-- COMPACT SLIDESHOW CONTROLS
+      This small floating panel appears inside the lower-right corner of the photograph.
+      The two arrows allow visitors to move backward or forward through the photographs.
+      Keep the button class names unchanged because JavaScript uses them to change photographs.
+      -->
+      <div class="hero-slide-controls" aria-label="Slideshow controls">
+        <button class="hero-slide-button hero-slide-previous" type="button" aria-label="Show previous project photograph">&#8592;</button>
+        <button class="hero-slide-button hero-slide-next" type="button" aria-label="Show next project photograph">&#8594;</button>
+      </div>
+
+      <!-- This shape creates the white text panel and orange diagonal divider. -->
+      <div class="hero-diagonal" aria-hidden="true"></div>
+
+      <div class="container hero-layout">
+        <div class="hero-content">
+          <!-- B1.1 MAIN HEADING
+          Each span is kept on one line on normal desktop screens.
+          Change only the words inside the spans to revise this heading.
+          -->
+          <h1 class="hero-heading">
+            <span>Every <em class="orange-text">Defect</em> has a Reason.</span>
+            <span>Every <em class="orange-text">Repair</em> should have one too.</span>
+          </h1>
+
+          <!-- B1.2 OPENING TEXT -->
+          <p class="hero-text">
+            Structural distress is often only the visible sign of a deeper problem.
+            StructoNova studies the cause, measures the extent of deterioration and
+            recommends solutions that restore performance, improve durability and
+            reduce the risk of repeated failure.
+          </p>
+
+          <!-- B1.3 AND B1.4 HERO BUTTONS -->
+          <div class="hero-actions">
+            <a class="button primary" href="contact.html">Discuss Your Project</a>
+            <a class="button secondary" href="#services">View Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- B2. EXPERIENCE STRIP
+    These three items provide quick proof of experience and service coverage.
+    -->
+    <section class="legacy-strip" aria-label="StructoNova experience">
+      <div class="container legacy-grid">
+        <div class="legacy-item">
+          <img src="assets/experience.svg" alt="" class="legacy-icon">
+          <div><strong>56+ Years</strong><span>Combined Experience</span></div>
+        </div>
+        <div class="legacy-item">
+          <img src="assets/projects.svg" alt="" class="legacy-icon">
+          <div><strong>500+ Projects</strong><span>Project Legacy</span></div>
+        </div>
+        <div class="legacy-item">
+          <img src="assets/end-to-end.svg" alt="" class="legacy-icon">
+          <div><strong>End-to-End</strong><span>Assessment to Execution</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- B3. ABOUT STRUCTONOVA
+    This section explains the company and its engineering approach.
+    -->
+    <section class="section about-section tracked-section" id="about" data-nav-target="#about">
+      <div class="container about-layout">
+        <div class="about-heading-block">
+          <h2>
+            <span><em class="orange-text">Clear</em> Diagnosis.</span>
+            <span><em class="orange-text">Practical</em> Design.</span>
+            <span><em class="orange-text">Responsible</em> Execution.</span>
+          </h2>
+        </div>
+        <div class="about-text-block">
+          <p>StructoNova Pvt. Ltd. integrates the legacy, talent and technical depth of its parent firms to deliver robust and practical structural solutions for existing buildings and infrastructure.</p>
+          <p>Our strength lies in bringing together engineering judgment and site practicality to create repair solutions that are technically sound, execution-ready and focused on long-term performance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- B4. FOUNDING COMPANIES
+    StructoNova brings together the experience and capabilities of these three
+    founding companies.
+    -->
+    <section class="section founding-section">
+      <div class="container">
+        <div class="section-heading align-right">
+          <h2><em class="orange-text">Founding</em> Companies</h2>
+        </div>
+        <div class="founding-grid" aria-label="StructoNova founding companies">
+          <div class="founding-logo"><a class="founding-link" href="https://radhestructorepair.com/" target="_blank" rel="noopener" aria-label="Visit Radhe Structorepair"><img class="founding-logo-radhe" src="assets/founding-radhe.webp" alt="Radhe Structorepair" loading="lazy" decoding="async"></a></div>
+          <div class="founding-logo"><a class="founding-link" href="https://sakshham.com/" target="_blank" rel="noopener" aria-label="Visit Sakshham"><img class="founding-logo-sakshham" src="assets/founding-sakshham.webp" alt="Sakshham" loading="lazy" decoding="async"></a></div>
+          <div class="founding-logo"><img class="founding-logo-creative" src="assets/founding-creative.webp" alt="Creative Engineering Services" loading="lazy" decoding="async"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- B4. CORE TEAM
+    Approved names and qualifications are listed below. Portrait placeholders can be
+    replaced with individual photographs when the final image files are supplied.
+    -->
+    <section class="section team-section" id="team">
+      <div class="container">
+        <div class="section-heading">
+          <h2><em class="orange-text">Core</em> Team</h2>
+        </div>
+
+        <div class="team-grid">
+          <article class="team-card">
+            <img class="team-photo" src="assets/team-aayush-upadhyay.webp" alt="Aayush Upadhyay" loading="lazy" decoding="async">
+            <div class="team-card-content">
+              <h3>Aayush Upadhyay</h3>
+              <p>M.Tech Structures,<br>Nirma University</p>
+              <p class="team-credential">AMPP Certified CP-2 Technician</p>
+            </div>
+          </article>
+          <article class="team-card">
+            <img class="team-photo" src="assets/team-valay-shah.webp" alt="Valay Shah" loading="lazy" decoding="async">
+            <div class="team-card-content">
+              <h3>Valay Shah</h3>
+              <p>ME Structures,<br>DDIT Nadiad</p>
+            </div>
+          </article>
+          <article class="team-card">
+            <img class="team-photo" src="assets/team-nikunj-patel.webp" alt="Nikunj Patel" loading="lazy" decoding="async">
+            <div class="team-card-content">
+              <h3>Nikunj Patel</h3>
+              <p>M.Tech Infrastructure Engineering &amp; Management,<br>CEPT University</p>
+            </div>
+          </article>
+          <article class="team-card">
+            <img class="team-photo" src="assets/team-ashish-sorathiya.webp" alt="Ashish Sorathiya" loading="lazy" decoding="async">
+            <div class="team-card-content">
+              <h3>Ashish Sorathiya</h3>
+              <p>M Tech. Structural Dynamics,<br>IIT Roorkee</p>
+            </div>
+          </article>
+          <article class="team-card">
+            <img class="team-photo" src="assets/team-bhavish-dodia.webp" alt="Bhavish Dodia" loading="lazy" decoding="async">
+            <div class="team-card-content">
+              <h3>Bhavish Dodia</h3>
+              <p>BE Civil,<br>Gujarat Technical University</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- B5. EXECUTION SERVICES
+    The main service area is presented through execution methods rather than named projects.
+    -->
+    <section class="section execution-section home-execution-section tracked-section" id="services" data-nav-target="#services">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Execution <em class="orange-text">Services</em></h2>
+        </div>
+
+        <div class="execution-list">
+          <article class="execution-card">
+            <img class="execution-image" src="assets/execution-card-01.webp" alt="Testing of an existing structure" loading="lazy" decoding="async">
+            <div class="execution-card-content"><h3>Testing of Structures</h3><p>On-site and laboratory testing selected to establish material condition, performance and the extent of deterioration.</p></div>
+          </article>
+          <article class="execution-card">
+            <img class="execution-image" src="assets/execution-card-02.webp" alt="Structural analysis work" loading="lazy" decoding="async">
+            <div class="execution-card-content"><h3>Structural Analysis</h3><p>Engineering assessment and analysis used to understand structural behaviour, capacity and the need for intervention.</p></div>
+          </article>
+          <article class="execution-card">
+            <img class="execution-image" src="assets/execution-card-03.webp" alt="RCC cathodic protection installation" loading="lazy" decoding="async">
+            <div class="execution-card-content"><h3>RCC Cathodic Protection Design and Applications</h3><p>Design, installation and monitoring of corrosion-control systems for reinforced concrete structures.</p></div>
+          </article>
+          <article class="execution-card">
+            <img class="execution-image" src="assets/execution-card-04.webp" alt="CFRP and GFRP strengthening work" loading="lazy" decoding="async">
+            <div class="execution-card-content"><h3>CFRP and GFRP Strengthening</h3><p>Fibre-reinforced polymer strengthening systems for beams, slabs, columns, walls and structural connections.</p></div>
+          </article>
+          <article class="execution-card">
+            <img class="execution-image" src="assets/execution-card-05.webp" alt="Micro-concrete jacketing work" loading="lazy" decoding="async">
+            <div class="execution-card-content"><h3>Micro-Concrete Jacketing</h3><p>Section enlargement and strengthening of structural members using flowable micro-concrete systems.</p></div>
+          </article>
+          <article class="execution-card">
+            <img class="execution-image" src="assets/execution-card-06.webp" alt="Polymer-modified mortar repair" loading="lazy" decoding="async">
+            <div class="execution-card-content"><h3>Polymer-Modified Mortar Repair</h3><p>Durable local repairs for damaged concrete, cover restoration and surface reinstatement.</p></div>
+          </article>
+          <article class="execution-card">
+            <img class="execution-image" src="assets/execution-card-07.webp" alt="Pressure grouting and crack repair" loading="lazy" decoding="async">
+            <div class="execution-card-content"><h3>Pressure Grouting and Crack Repair</h3><p>PU, epoxy and acrylate grouting, together with crack sealing and repair.</p></div>
+          </article>
+          <article class="execution-card">
+            <img class="execution-image" src="assets/execution-card-08.webp" alt="Industrial flooring and waterproofing application" loading="lazy" decoding="async">
+            <div class="execution-card-content"><h3>Industrial Flooring and Waterproofing</h3><p>PU, epoxy, Xolutec and specialised waterproofing systems selected for service conditions.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- B6. HOW WE DO IT
+    Assessment supports execution through a clear five-stage delivery sequence.
+    -->
+    <section class="section process-section" id="process">
+      <div class="container">
+        <div class="section-heading align-right">
+          <h2>How We <em class="orange-text">Do It</em></h2>
+        </div>
+        <div class="process-grid">
+          <article class="process-card"><span class="process-number">01</span><img class="process-icon" src="assets/process-review.svg" alt=""><h3>Review</h3><p>Understand the structure, available records, reported concerns and required outcome.</p></article>
+          <article class="process-card"><span class="process-number">02</span><img class="process-icon" src="assets/process-investigate.svg" alt=""><h3>Investigate</h3><p>Carry out visual inspection, measurements and suitable structural or durability tests.</p></article>
+          <article class="process-card"><span class="process-number">03</span><img class="process-icon" src="assets/process-diagnose.svg" alt=""><h3>Diagnose</h3><p>Study the findings to establish the cause, extent and importance of the problem.</p></article>
+          <article class="process-card"><span class="process-number">04</span><img class="process-icon" src="assets/process-design.svg" alt=""><h3>Design</h3><p>Prepare a practical repair, strengthening or protection solution with a clear technical scope.</p></article>
+          <article class="process-card"><span class="process-number">05</span><img class="process-icon" src="assets/process-deliver.svg" alt=""><h3>Execute</h3><p>Execute the work with material control, quality checks and final verification.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- B8. STRUCTURES WE HANDLE
+    These cards list the main types of structures served by the company.
+    -->
+    <section class="section structure-section">
+      <div class="container">
+        <div class="section-heading">
+          <h2><em class="orange-text">Structures</em> We Handle</h2>
+        </div>
+        <div class="card-grid structure-grid">
+          <article>
+            <img src="assets/industrial.svg" alt="" class="card-icon large">
+            <h3>Industrial and Heavy Infrastructure</h3>
+            <p>Power plants, cement plants, silos, chimneys, ports, marine structures and industrial assets exposed to demanding service conditions.</p>
+          </article>
+          <article>
+            <img src="assets/buildings.svg" alt="" class="card-icon large">
+            <h3>Buildings and Campuses</h3>
+            <p>Commercial buildings, residential towers, institutional campuses, corporate facilities and public-use structures requiring assessment, repair or strengthening.</p>
+          </article>
+          <article>
+            <img src="assets/transport.svg" alt="" class="card-icon large">
+            <h3>Transport Infrastructure</h3>
+            <p>Bridges, flyovers, roads and related transport structures where safety, durability and service continuity are critical.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- B9. CLIENT LOGO SLIDER
+    Only approved, supplied logos are shown. The second group repeats the first
+    so the strip can move continuously.
+    -->
+    <section class="section clients-section tracked-section" id="clients" data-nav-target="#clients">
+      <div class="container">
+        <div class="section-heading align-right">
+          <h2>Selected <em class="orange-text">Clients</em></h2>
+        </div>
+      </div>
+      <div class="client-slider" aria-label="Selected clients">
+        <div class="client-track">
+          <div class="client-group">
+            <div class="client-logo-card"><img class="client-logo-large" src="assets/client-tata-chemicals.webp" alt="Tata Chemicals" loading="lazy" decoding="async"></div>
+            <div class="client-logo-card"><img class="client-logo-large" src="assets/client-ghcl.webp" alt="GHCL" loading="lazy" decoding="async"></div>
+            <div class="client-logo-card"><img src="assets/client-apcotex.webp" alt="Apcotex Industries" loading="lazy" decoding="async"></div>
+            <div class="client-logo-card"><img src="assets/client-welspun.webp" alt="Welspun Group" loading="lazy" decoding="async"></div>
+            <div class="client-logo-card"><img src="assets/client-sal-steel.webp" alt="S.A.L. Steel" loading="lazy" decoding="async"></div>
+            <div class="client-logo-card"><img src="assets/client-fmc-cheminova.webp" alt="FMC Cheminova" loading="lazy" decoding="async"></div>
+            <div class="client-logo-card"><img src="assets/client-torrent-power.webp" alt="Torrent Power" loading="lazy" decoding="async"></div>
+            <div class="client-logo-card"><img src="assets/client-sbi.webp" alt="State Bank of India" loading="lazy" decoding="async"></div>
+            <div class="client-logo-card"><img class="client-logo-xlarge" src="assets/client-psp-projects.webp" alt="PSP Projects" loading="lazy" decoding="async"></div>
+            <div class="client-logo-card"><img src="assets/client-hocco.svg" alt="Hocco Industries" loading="lazy" decoding="async"></div>
+            <div class="client-logo-card"><img class="client-logo-large" src="assets/client-nestle-india.webp" alt="Nestlé India" loading="lazy" decoding="async"></div>
+          </div>
+          <div class="client-group" aria-hidden="true">
+            <div class="client-logo-card"><img class="client-logo-large" src="assets/client-tata-chemicals.webp" alt=""></div>
+            <div class="client-logo-card"><img class="client-logo-large" src="assets/client-ghcl.webp" alt=""></div>
+            <div class="client-logo-card"><img src="assets/client-apcotex.webp" alt=""></div>
+            <div class="client-logo-card"><img src="assets/client-welspun.webp" alt=""></div>
+            <div class="client-logo-card"><img src="assets/client-sal-steel.webp" alt=""></div>
+            <div class="client-logo-card"><img src="assets/client-fmc-cheminova.webp" alt=""></div>
+            <div class="client-logo-card"><img src="assets/client-torrent-power.webp" alt=""></div>
+            <div class="client-logo-card"><img src="assets/client-sbi.webp" alt=""></div>
+            <div class="client-logo-card"><img class="client-logo-xlarge" src="assets/client-psp-projects.webp" alt=""></div>
+            <div class="client-logo-card"><img src="assets/client-hocco.svg" alt=""></div>
+            <div class="client-logo-card"><img class="client-logo-large" src="assets/client-nestle-india.webp" alt=""></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- B10. FINAL CONTACT BANNER -->
+    <section class="final-cta">
+      <div class="container final-cta-inner">
+        <h2>Want to Know Your Structure? <em class="orange-text">We Can Help.</em></h2>
+        <a class="button primary" href="contact.html">Contact Us</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- A3. FOOTER
+  Only the larger company logo appears in the first footer column.
+  The copyright line is centred below the main footer information.
+  -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="StructoNova Pvt. Ltd." class="footer-logo">
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <a href="mailto:info@structonova.com">info@structonova.com</a>
+        <a href="mailto:projects@structonova.com">projects@structonova.com</a>
+        <a href="tel:+917069055250">+91 70690 55250</a>
+        <a href="tel:+918238043982">+91 82380 43982</a>
+      </div>
+      <div>
+        <h3>Office &amp; Links</h3>
+        <p>1324, 13th Floor, Maple Trade Centre, Sal Hospital Road, near Surdhara Circle, Thaltej, Ahmedabad, Gujarat 380052</p>
+        <a href="https://maps.app.goo.gl/MkwKdC5rLRKFQKk88" target="_blank" rel="noopener">Google Maps</a>
+        <a href="https://www.linkedin.com/in/aayush-upadhyay-83275a412/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">© 2026 StructoNova Pvt. Ltd. All rights reserved.</div>
+  </footer>
+
+  <!-- B8. HOME PAGE BEHAVIOUR
+  The shared script controls the mobile menu and active menu underline.
+  -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,902 @@
+/* A5. WEBSITE COLOURS AND BASIC SETTINGS
+Change a colour value here to update that colour throughout the website.
+*/
+:root {
+  --orange: #ef7f1a;
+  --orange-dark: #c95f00;
+  --orange-light: #fff1e4;
+  --card-accent: var(--orange);
+  --grey: #676766;
+  --grey-dark: #333332;
+  --grey-mid: #858583;
+  --grey-light: #ececea;
+  --off-white: #f7f7f5;
+  --white: #ffffff;
+  --text: #3f3f3e;
+  --line: rgba(103, 103, 102, 0.22);
+  --shadow: 0 18px 46px rgba(42, 42, 41, 0.12);
+}
+
+/* BASIC PAGE RESET
+These rules keep sizing and spacing consistent in different browsers.
+*/
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button, input, textarea { font: inherit; }
+
+/* PAGE WIDTH
+Reduce 1600px to make the content narrower. Increase 80px for larger side margins.
+*/
+.container {
+  width: min(1600px, calc(100% - 80px));
+  margin: 0 auto;
+}
+
+/* HEADINGS AND ORANGE HOVER UNDERLINE
+All orange text receives an underline when hovered, as requested in A4.
+*/
+h1, h2, h3 {
+  margin-top: 0;
+  color: var(--grey-dark);
+  line-height: 1.15;
+}
+h1, h2 { letter-spacing: -0.025em; }
+h2 { font-size: clamp(2rem, 3.5vw, 3.5rem); }
+h3 { font-size: 1.2rem; }
+em { font-style: normal; }
+.orange-text {
+  position: relative;
+  display: inline-block;
+  color: var(--orange);
+}
+.orange-text::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  content: "";
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s ease;
+}
+.orange-text:hover::after { transform: scaleX(1); }
+
+/* A2. HEADER AND MAIN MENU
+The sticky header stays at the top. The orange line marks hover and active states.
+*/
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(103, 103, 102, 0.14);
+  background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(255,241,228,.88));
+  box-shadow: 0 7px 24px rgba(42, 42, 41, 0.04);
+  backdrop-filter: blur(12px);
+}
+.header-inner {
+  display: flex;
+  min-height: 104px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+.logo-link { flex: 0 0 auto; }
+.site-logo {
+  width: 200px;
+  height: 82px;
+  object-fit: contain;
+  object-position: left center;
+}
+.site-nav { display: flex; align-items: center; gap: 24px; }
+.site-nav a {
+  position: relative;
+  padding: 8px 0;
+  color: var(--grey);
+  font-size: 1.04rem;
+  font-weight: 700;
+}
+.site-nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  content: "";
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .2s ease;
+}
+.site-nav a:hover::after,
+.site-nav a.active::after { transform: scaleX(1); }
+.menu-button {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  cursor: pointer;
+}
+.menu-button span { display: block; height: 2px; margin: 5px 0; background: var(--grey-dark); }
+
+/* A4. SHARED BUTTONS
+Primary and secondary buttons share one clear orange treatment.
+*/
+.button {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 10px 21px;
+  border: 2px solid var(--orange);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--orange);
+  cursor: pointer;
+  font-size: .92rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  transition: color .35s ease;
+}
+.button::before {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: -35px;
+  width: 0;
+  content: "";
+  background: var(--orange);
+  transform: skewX(35deg);
+  transition: width .35s ease;
+}
+.button:hover { color: var(--white); }
+.button:hover::before { width: 150%; }
+.button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+.menu-button:focus-visible,
+.hero-slide-button:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
+
+/* B1. HERO SECTION
+The white diagonal panel holds the text. The orange edge follows the same split-panel
+style used on the Projects page, and the slideshow fills the right side.
+Change the percentage values in .hero-diagonal and .hero-diagonal::after together
+to move the dividing edge.
+*/
+.hero {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+  background: var(--white);
+}
+.hero-layout {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  min-height: 520px;
+  align-items: center;
+}
+.hero-content {
+  width: 43%;
+  padding: 42px 0 46px;
+}
+.hero-diagonal {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  background: var(--orange);
+  clip-path: polygon(0 0, 39% 0, 63% 100%, 0 100%);
+  filter: drop-shadow(14px 0 18px rgba(25, 25, 24, .32));
+  pointer-events: none;
+}
+.hero-diagonal::after {
+  position: absolute;
+  inset: 0;
+  background: var(--white);
+  clip-path: polygon(0 0, 38% 0, 61.7% 100%, 0 100%);
+  content: "";
+}
+
+/* PROJECT SLIDESHOW
+Each .hero-slide is one photograph. JavaScript changes which slide has the active class.
+*/
+.hero-slideshow {
+  position: absolute;
+  z-index: 1;
+  inset: 0 0 0 32%;
+  overflow: hidden;
+  background: var(--grey-dark);
+}
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.hero-slide.active { opacity: 1; }
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  /* Use 1600 x 900 px (16:9) photographs for the most consistent result. */
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(.72);
+}
+
+/* COMPACT SLIDESHOW CONTROLS
+This floating panel sits inside the lower-right corner of the photograph.
+The two small arrows change the photograph.
+*/
+.hero-slide-controls {
+  position: absolute;
+  z-index: 5;
+  right: 24px;
+  bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px;
+  border: 1px solid rgba(255, 255, 255, .28);
+  border-radius: 999px;
+  background: rgba(30, 30, 29, .68);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .2);
+  backdrop-filter: blur(7px);
+}
+.hero-slide-button {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--white);
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color .2s ease, color .2s ease;
+}
+.hero-slide-button:hover {
+  background: var(--orange);
+  color: var(--white);
+}
+.hero-heading {
+  margin-bottom: 18px;
+  color: var(--grey-dark);
+  font-size: clamp(1.65rem, 2.5vw, 2.6rem);
+  letter-spacing: -.025em;
+}
+.hero-heading > span { display: block; white-space: nowrap; }
+.hero-text { max-width: 650px; margin: 0; color: var(--grey); font-size: 1.04rem; line-height: 1.58; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+
+/* B2. EXPERIENCE STRIP
+The white top border creates a small visual gap below the hero section.
+*/
+.legacy-strip { border-top: 8px solid var(--white); background: var(--grey-dark); color: var(--white); }
+.legacy-strip .container { width: 100%; max-width: none; }
+.legacy-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+.legacy-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 27px 40px;
+  border-right: 1px solid rgba(255,255,255,.13);
+}
+.legacy-item:last-child { border-right: 0; }
+.legacy-icon { width: 72px; height: 72px; object-fit: contain; }
+.legacy-item strong, .legacy-item span { display: block; }
+.legacy-item strong { color: var(--orange); font-size: 1.38rem; line-height: 1.2; }
+.legacy-item span { margin-top: 4px; color: rgba(255,255,255,.82); }
+
+/* GENERAL SECTION SETTINGS
+Change the 80px value to increase or reduce vertical spacing across sections.
+*/
+.section { padding: 80px 0; }
+.section-label {
+  margin: 0 0 12px;
+  color: var(--orange);
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.section-heading { max-width: 780px; margin-bottom: 38px; }
+.section-heading h2 { margin-bottom: 15px; }
+.section-heading p:last-child { margin-bottom: 0; color: var(--grey); font-size: 1.05rem; }
+.align-right { max-width: none; text-align: right; }
+#about, #services, #clients { scroll-margin-top: 104px; }
+
+/* HOME PAGE SECTION ORDER
+The Home page is intentionally ordered around execution, proof and contact.
+*/
+body[data-page="home"] main { display: flex; flex-direction: column; }
+body[data-page="home"] .hero { order: 1; }
+body[data-page="home"] .legacy-strip { order: 2; }
+body[data-page="home"] .about-section { order: 3; }
+body[data-page="home"] .execution-section { order: 4; }
+body[data-page="home"] .process-section { order: 5; }
+body[data-page="home"] .structure-section { order: 6; }
+body[data-page="home"] .clients-section { order: 7; }
+body[data-page="home"] .team-section { order: 8; }
+body[data-page="home"] .founding-section { order: 9; }
+body[data-page="home"] .final-cta { order: 10; }
+body[data-page="home"] .section { padding: 48px 0; }
+
+/* B3. ABOUT SECTION */
+.about-section { background: var(--white); }
+.about-layout {
+  display: grid;
+  width: min(1260px, 100%);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 72px;
+  margin: 0 auto;
+}
+.about-heading-block { order: 2; }
+.about-heading-block h2 { margin: 0; font-size: clamp(2rem, 3.4vw, 3.5rem); }
+.about-heading-block h2 > span { display: block; }
+.about-text-block { order: 1; }
+.about-text-block p { margin: 0 0 18px; color: var(--grey); font-size: 1.12rem; line-height: 1.7; }
+
+/* B4. FOUNDING COMPANIES */
+.founding-section { background: var(--white); }
+.founding-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.founding-logo {
+  position: relative;
+  display: grid;
+  min-height: 150px;
+  padding: 18px 40px;
+  place-items: center;
+}
+.founding-logo:not(:last-child)::after {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  bottom: 30px;
+  width: 2px;
+  background: rgba(239,127,26,.5);
+  content: "";
+}
+.founding-logo img { display: block; max-width: 100%; object-fit: contain; }
+.founding-logo-creative { width: 190px; height: auto; max-height: 82px; }
+.founding-logo-radhe { width: auto; height: 112px; }
+.founding-logo-sakshham { width: 220px; height: auto; max-height: 96px; }
+.founding-link { display: grid; width: 100%; height: 100%; place-items: center; }
+.founding-link img { transition: transform .25s ease, filter .25s ease; }
+.founding-link:hover img { filter: brightness(1.12); transform: scale(1.05); }
+.founding-link:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
+
+/* B5. CORE TEAM */
+.team-section { background: var(--white); }
+.team-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+.team-card {
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  background: var(--grey-dark);
+  color: var(--white);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.team-card:hover { transform: translateY(-7px); border-color: var(--orange); box-shadow: 9px 9px 0 var(--orange); }
+.team-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 752 / 806;
+  object-fit: cover;
+  object-position: center top;
+}
+.team-photo-placeholder {
+  display: grid;
+  aspect-ratio: 4 / 5;
+  place-items: center;
+  background:
+    linear-gradient(145deg, rgba(239,127,26,.18), transparent 46%),
+    repeating-linear-gradient(-45deg, #777775 0, #777775 10px, #6d6d6b 10px, #6d6d6b 20px);
+  color: rgba(255,255,255,.62);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.team-card-content { min-height: 150px; padding: 18px 16px 20px; }
+.team-card h3 { margin-bottom: 8px; color: var(--orange); font-size: 1.08rem; }
+.team-card p { margin: 0; color: rgba(255,255,255,.74); font-size: .82rem; line-height: 1.45; }
+.team-card .team-credential { margin-top: 10px; color: var(--white); font-weight: 700; }
+
+/* B5 AND B6. SERVICE AND STRUCTURE CARDS */
+.services-section { padding-top: 38px; background: var(--off-white); }
+.structure-section { background: var(--white); }
+.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.card-grid article {
+  min-height: 280px;
+  padding: 30px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: var(--grey-dark);
+  color: var(--white);
+  text-align: center;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.card-grid article:hover { transform: translateY(-7px); border-color: var(--orange); box-shadow: 9px 9px 0 var(--orange); }
+.card-grid h3 { margin-bottom: 16px; color: var(--orange); }
+.card-grid p { margin-bottom: 0; color: rgba(255,255,255,.82); }
+.card-icon { width: 80px; height: 80px; margin: 0 auto 23px; object-fit: contain; }
+.card-icon.large { width: 100px; height: 100px; }
+
+/* B7. FINAL CONTACT BANNER */
+.final-cta { padding: 0 0 48px; background: var(--white); }
+.final-cta-inner { display: flex; flex-direction: column; align-items: center; gap: 26px; padding-top: 48px; border-top: 1px solid var(--line); text-align: center; }
+.final-cta h2 { margin: 0; }
+
+/* A3. FOOTER
+The main footer uses three clear columns. The logo is centred only inside the
+left-hand column, and the copyright line is centred below all three columns.
+*/
+.site-footer { padding: 52px 0 22px; background: #20201f; color: rgba(255,255,255,.72); }
+.footer-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px 72px; align-items: stretch; }
+.footer-brand { display: flex; align-items: center; justify-content: center; }
+.footer-logo { width: 285px; height: 118px; object-fit: contain; object-position: center; }
+.footer-grid h3 { margin-bottom: 16px; color: var(--white); font-size: 1rem; text-transform: uppercase; letter-spacing: .06em; }
+.footer-grid a { display: block; width: fit-content; margin: 7px 0; }
+.footer-grid a:hover { color: var(--orange); text-decoration: underline; text-underline-offset: 4px; }
+.footer-grid p { margin: 0 0 12px; }
+.footer-bottom { margin-top: 38px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.11); text-align: center; font-size: .9rem; }
+
+/* C1. CONTACT PAGE INTRODUCTION */
+.contact-hero { padding: 50px 0 26px; background: var(--white); }
+.contact-hero-inner { max-width: 980px; text-align: center; }
+.contact-hero h1 { margin-bottom: 20px; font-size: clamp(2rem, 3.5vw, 3.5rem); }
+.contact-hero p:last-child { max-width: 760px; margin: 0 auto; color: var(--grey); font-size: 1.12rem; }
+
+/* C2 TO C5. CONTACT FORM AND CONTACT CARDS */
+.contact-section { padding: 24px 0 58px; }
+.contact-main-layout { display: grid; grid-template-columns: minmax(0, 54%) minmax(0, 40%); justify-content: space-between; gap: 56px; align-items: start; }
+.contact-form-wrap { padding: 30px; border: 1px solid var(--line); background: var(--off-white); }
+.contact-form-wrap h2, .contact-details-wrap h2 { margin-bottom: 16px; font-size: 1.65rem; }
+.contact-form-intro { margin-bottom: 26px; color: var(--grey); }
+.contact-form { display: grid; gap: 11px; }
+.contact-form label { color: var(--grey-dark); font-weight: 700; }
+.contact-form input, .contact-form textarea { width: 100%; padding: 13px 14px; border: 1px solid rgba(103,103,102,.3); background: var(--white); color: var(--text); }
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--orange); }
+.contact-form textarea { resize: vertical; }
+.contact-form .button { width: fit-content; margin-top: 12px; }
+.form-status { margin: 12px 0 0; color: var(--grey-dark); font-weight: 700; }
+.form-status.success { color: #1f6f43; }
+.form-status.error { color: #a12a22; }
+.contact-details { display: grid; gap: 18px; }
+.contact-card { padding: 22px; border: 1px solid rgba(255,255,255,.12); background: var(--grey-dark); color: var(--white); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.contact-card:hover { transform: translateY(-6px); border-color: var(--orange); box-shadow: 8px 8px 0 var(--orange); }
+.contact-card h3 { margin-bottom: 14px; color: var(--orange); }
+.contact-card a, .contact-card p { display: block; margin: 0 0 7px; color: rgba(255,255,255,.84); }
+.contact-card a:hover { color: var(--white); text-decoration: underline; text-underline-offset: 4px; }
+
+/* D1. PROJECTS PAGE INTRODUCTION
+This short heading introduces the separate Projects page.
+*/
+.projects-hero { padding: 24px 0; background: var(--grey-dark); text-align: center; }
+.projects-hero-inner { max-width: 920px; }
+.projects-hero h1 { margin: 0; color: var(--white); font-size: clamp(1.65rem, 2.5vw, 2.35rem); }
+.projects-hero p:last-child { max-width: 720px; margin: 0 auto; color: var(--grey); font-size: 1.08rem; }
+
+/* D2. HOW WE DO IT
+The five cards explain the normal project sequence. Replace an icon file without changing its filename.
+*/
+.process-section { background: var(--off-white); }
+.process-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.process-card {
+  position: relative;
+  min-height: 270px;
+  padding: 28px 22px 24px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: var(--grey-dark);
+  color: var(--white);
+  text-align: center;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.process-card:hover { transform: translateY(-7px); border-color: var(--card-accent); box-shadow: 9px 9px 0 var(--card-accent); }
+.process-number { position: absolute; top: 14px; left: 16px; color: rgba(239, 127, 26, .2); font-size: 2rem; font-weight: 900; line-height: 1; }
+.process-icon { width: 72px; height: 72px; margin: 12px auto 20px; object-fit: contain; }
+.icon-placeholder {
+  display: grid;
+  width: 72px;
+  height: 72px;
+  margin: 12px auto 20px;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.24);
+  background: repeating-linear-gradient(-45deg, #777775 0, #777775 8px, #6d6d6b 8px, #6d6d6b 16px);
+  color: rgba(255,255,255,.7);
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.process-card h3 { margin-bottom: 12px; color: var(--orange); }
+.process-card p { margin: 0; color: rgba(255,255,255,.82); font-size: .95rem; line-height: 1.55; }
+/* D3. TYPES OF EXECUTION
+Each row follows the user's sketch: photograph on one side, dark information panel on the other,
+with a sloping orange divider. The direction alternates from one row to the next.
+Replace the photograph without changing the filename listed in ASSET_REPLACEMENT_LIST.csv.
+*/
+.execution-section { background: var(--white); }
+.execution-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.execution-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: .82fr 1.18fr;
+  min-height: 190px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  background: var(--grey-dark);
+  color: var(--white);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.execution-card:hover { transform: translateY(-7px); border-color: var(--card-accent); box-shadow: 9px 9px 0 var(--card-accent); }
+.execution-image { width: 100%; max-width: none; height: 190px; object-fit: cover; object-position: center; }
+.photo-placeholder {
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(145deg, rgba(239,127,26,.16), transparent 46%),
+    repeating-linear-gradient(-45deg, #777775 0, #777775 10px, #6d6d6b 10px, #6d6d6b 20px);
+  color: rgba(255,255,255,.7);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.execution-image-placeholder { width: 100%; height: 190px; }
+.execution-card-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px 22px 24px 38px;
+  background: var(--grey-dark);
+}
+.execution-card-content::before {
+  position: absolute;
+  z-index: -1;
+  top: -10%;
+  bottom: -10%;
+  left: -30px;
+  width: 52px;
+  border-left: 5px solid var(--orange);
+  background: var(--grey-dark);
+  content: "";
+  transform: skewX(-11deg);
+}
+.execution-card:nth-child(even) { grid-template-columns: 1.18fr .82fr; }
+.execution-card:nth-child(even) .execution-image { order: 2; }
+.execution-card:nth-child(even) .execution-image-placeholder { order: 2; }
+.execution-card:nth-child(even) .execution-card-content { order: 1; padding: 24px 38px 24px 22px; }
+.execution-card:nth-child(even) .execution-card-content::before {
+  right: -30px;
+  left: auto;
+  border-right: 5px solid var(--orange);
+  border-left: 0;
+  transform: skewX(11deg);
+}
+.execution-card h3 { margin-bottom: 8px; color: var(--orange); font-size: clamp(1rem, 1.3vw, 1.25rem); }
+.execution-card p { max-width: 540px; margin: 0; color: rgba(255,255,255,.82); font-size: .82rem; line-height: 1.48; }
+
+/* B9. CONTINUOUS CLIENT LOGO SLIDER
+Use transparent PNG or SVG logos. Animation pauses when a visitor points at the slider.
+*/
+.clients-section { overflow: hidden; background: var(--white); }
+.clients-section .section-heading { margin-bottom: 24px; }
+.client-slider {
+  position: relative;
+  overflow: hidden;
+  padding: 10px 0;
+  border-top: 1px solid rgba(239,127,26,.24);
+  border-bottom: 1px solid rgba(239,127,26,.24);
+  background: var(--white);
+}
+.client-slider::before,
+.client-slider::after { position: absolute; z-index: 2; top: 0; bottom: 0; width: 90px; content: ""; pointer-events: none; }
+.client-slider::before { left: 0; background: linear-gradient(90deg, var(--white) 20%, transparent); }
+.client-slider::after { right: 0; background: linear-gradient(-90deg, var(--white) 20%, transparent); }
+.client-track { display: flex; width: max-content; animation: client-scroll 38s linear infinite; }
+.client-slider:hover .client-track { animation-play-state: paused; }
+.client-group { display: flex; flex-shrink: 0; padding-right: 0; }
+.client-logo-card {
+  position: relative;
+  display: grid;
+  width: 220px;
+  min-height: 118px;
+  padding: 14px 30px;
+  place-items: center;
+  background: transparent;
+  transition: transform .25s ease;
+}
+.client-logo-card::after {
+  position: absolute;
+  top: 24px;
+  right: 0;
+  bottom: 24px;
+  width: 2px;
+  background: rgba(239,127,26,.5);
+  content: "";
+}
+.client-logo-card:hover { transform: translateY(-3px); }
+.client-logo-card img { display: block; width: 100%; height: 86px; object-fit: contain; }
+.client-logo-card img.client-logo-large { transform: scale(1.28); }
+.client-logo-card img.client-logo-xlarge { transform: scale(1.35); }
+@keyframes client-scroll { to { transform: translateX(-50%); } }
+
+/* D4. PROJECT FILTERS
+This single horizontal selector follows the supplied sketch. It uses a dark background,
+orange sloping separators, white inactive text and orange active text.
+*/
+.projects-section { padding: 38px 0; background: var(--white); }
+.project-filters {
+  display: grid;
+  grid-template-columns: .65fr 1.75fr 1fr .8fr;
+  overflow: hidden;
+  margin-bottom: 32px;
+  border-top: 3px solid var(--grey-dark);
+  border-bottom: 3px solid var(--grey-dark);
+  background: var(--grey-dark);
+}
+.project-filter {
+  position: relative;
+  min-height: 62px;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 0;
+  background: var(--grey-dark);
+  color: var(--white);
+  cursor: pointer;
+  font-size: clamp(.88rem, 1.25vw, 1.08rem);
+  font-weight: 800;
+}
+.project-filter:not(:last-child)::after {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: -2px;
+  width: 4px;
+  height: 100%;
+  background: var(--orange);
+  content: "";
+  transform: skewX(-32deg);
+}
+.project-filter:hover { background: #353534; }
+.project-filter.active { color: var(--orange); }
+.project-filter:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+
+/* D5. PROJECT CARDS
+The list uses the same photograph, orange diagonal and dark-panel style as Types of Execution.
+Two compact split cards are shown per row so the complete list remains easy to scan.
+*/
+.project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.project-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  min-height: 255px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  background: var(--grey-dark);
+  color: var(--white);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.project-card:hover { transform: translateY(-7px); border-color: var(--card-accent); box-shadow: 9px 9px 0 var(--card-accent); }
+.project-card[hidden] { display: none; }
+.project-image { width: 100%; max-width: none; height: 255px; object-fit: cover; object-position: center; }
+.project-image-placeholder { width: 100%; height: 255px; }
+.project-card-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  padding: 28px 26px 28px 42px;
+  background: var(--grey-dark);
+}
+.project-card-content::before {
+  position: absolute;
+  z-index: -1;
+  top: -12%;
+  bottom: -12%;
+  left: -30px;
+  width: 54px;
+  border-left: 6px solid var(--orange);
+  background: var(--grey-dark);
+  content: "";
+  transform: skewX(-9deg);
+}
+.project-card:nth-child(even) { grid-template-columns: .95fr 1.05fr; }
+.project-card:nth-child(even) .project-image { order: 2; }
+.project-card:nth-child(even) .project-image-placeholder { order: 2; }
+.project-card:nth-child(even) .project-card-content { order: 1; padding: 28px 42px 28px 26px; }
+.project-card:nth-child(even) .project-card-content::before {
+  right: -30px;
+  left: auto;
+  border-right: 6px solid var(--orange);
+  border-left: 0;
+  transform: skewX(9deg);
+}
+.project-card h3 { margin-bottom: 7px; color: var(--white); font-size: 1.18rem; }
+.project-location { margin: 0 0 16px; color: var(--orange); font-size: .9rem; font-weight: 700; }
+.project-meta { display: grid; grid-template-columns: 95px 1fr; gap: 7px 12px; margin: 0; font-size: .92rem; }
+.project-meta dt { color: var(--white); font-weight: 700; }
+.project-meta dd { margin: 0; color: rgba(255,255,255,.78); }
+
+/* TABLET LAYOUT
+Below 1050px, wide two-column areas become one column.
+*/
+@media (max-width: 1050px) {
+  .menu-button { display: block; }
+  .site-nav {
+    position: absolute;
+    top: 104px;
+    right: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 14px 32px 20px;
+    border-bottom: 1px solid var(--line);
+    background: var(--white);
+    box-shadow: 0 14px 30px rgba(42,42,41,.1);
+  }
+  .site-nav.open { display: flex; }
+  .site-nav a { width: 100%; padding: 11px 0; }
+  .site-nav a::after { bottom: 7px; width: 54px; }
+  .about-layout, .contact-main-layout { grid-template-columns: 1fr; }
+  .founding-logo { padding-right: 24px; padding-left: 24px; }
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+  .project-grid { grid-template-columns: 1fr; }
+  .hero { min-height: 500px; }
+  .hero-layout { min-height: 500px; }
+  .hero-content { width: 50%; }
+  .hero-diagonal { clip-path: polygon(0 0, 44% 0, 69% 100%, 0 100%); }
+  .hero-diagonal::after { clip-path: polygon(0 0, 43% 0, 67.6% 100%, 0 100%); }
+  .hero-slideshow { left: 37%; }
+  .about-heading-block { order: 1; }
+  .about-text-block { order: 2; }
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .execution-list { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contact-main-layout { gap: 36px; }
+}
+
+/* MOBILE LAYOUT
+Below 680px, all cards become one column and spacing is reduced.
+*/
+@media (max-width: 680px) {
+  .container { width: calc(100% - 36px); }
+  body[data-page="home"] .section { padding: 40px 0; }
+  .header-inner { min-height: 84px; }
+  .site-logo { width: 174px; height: 66px; }
+  .site-nav { top: 84px; padding-right: 18px; padding-left: 18px; }
+  .section { padding: 54px 0; }
+  .hero { display: flex; min-height: 0; flex-direction: column; background: var(--white); }
+  .hero-layout { order: 1; min-height: 0; }
+  .hero-content { width: 100%; padding: 38px 0 34px; }
+  .hero-diagonal { display: none; }
+  .hero-slideshow {
+    position: relative;
+    inset: auto;
+    order: 2;
+    width: 100%;
+    height: 240px;
+  }
+  .hero-slide-controls {
+    right: 12px;
+    bottom: 12px;
+  }
+  .hero-slide-button { width: 34px; height: 34px; font-size: 1rem; }
+  .hero-slide { position: absolute; }
+  .hero-heading { font-size: clamp(1.03rem, 5.2vw, 1.7rem); }
+  .hero-heading > span { white-space: nowrap; }
+  .hero-text { font-size: 1rem; }
+  .projects-hero { padding: 19px 0; }
+  .project-filters {
+    grid-auto-columns: max-content;
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    overflow-x: auto;
+  }
+  .project-filter { min-width: max-content; padding-right: 28px; padding-left: 28px; }
+  .legacy-grid, .card-grid, .footer-grid, .process-grid, .project-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; }
+  .founding-grid { grid-template-columns: 1fr; }
+  .founding-logo:not(:last-child)::after {
+    top: auto;
+    right: 24px;
+    bottom: 0;
+    left: 24px;
+    width: auto;
+    height: 2px;
+  }
+  .client-logo-card { width: 176px; min-height: 100px; padding: 10px 22px; }
+  .client-logo-card img { height: 74px; }
+  .client-slider::before, .client-slider::after { width: 30px; }
+  .execution-card,
+  .execution-card:nth-child(even),
+  .project-card,
+  .project-card:nth-child(even) { grid-template-columns: 1fr; }
+  .execution-card .execution-image,
+  .execution-card:nth-child(even) .execution-image,
+  .project-card .project-image,
+  .project-card:nth-child(even) .project-image { order: 1; min-height: 220px; height: 220px; }
+  .execution-card .execution-image-placeholder,
+  .execution-card:nth-child(even) .execution-image-placeholder,
+  .project-card .project-image-placeholder,
+  .project-card:nth-child(even) .project-image-placeholder { order: 1; min-height: 220px; height: 220px; }
+  .execution-card .execution-image,
+  .execution-card:nth-child(even) .execution-image,
+  .execution-card .execution-image-placeholder,
+  .execution-card:nth-child(even) .execution-image-placeholder { min-height: 170px; height: 170px; }
+  .execution-card .execution-card-content,
+  .execution-card:nth-child(even) .execution-card-content,
+  .project-card .project-card-content,
+  .project-card:nth-child(even) .project-card-content { order: 2; padding: 28px 24px; }
+  .execution-card-content::before,
+  .execution-card:nth-child(even) .execution-card-content::before,
+  .project-card-content::before,
+  .project-card:nth-child(even) .project-card-content::before {
+    top: -18px;
+    right: -8%;
+    bottom: auto;
+    left: -8%;
+    width: auto;
+    height: 28px;
+    border-top: 6px solid var(--orange);
+    border-right: 0;
+    border-left: 0;
+    transform: skewY(-2deg);
+  }
+  .legacy-item { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.13); }
+  .legacy-item:last-child { border-bottom: 0; }
+  .align-right { text-align: left; }
+  .footer-grid { gap: 34px; }
+  .footer-logo { object-position: center; }
+  .contact-form-wrap { padding: 22px; }
+  .contact-hero { padding-top: 38px; }
+}
+
+/* REDUCED MOTION
+Visitors who disable animation in their device settings receive instant changes.
+*/
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; }
+  .client-track { animation: none; }
+  .client-slider { overflow-x: auto; }
+}

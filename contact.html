@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- A1. PAGE SETTINGS — Change the title or description here if required. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact StructoNova Pvt. Ltd. for structural repair, rehabilitation, retrofitting, strengthening, flooring, waterproofing and execution support.">
+  <title>Contact Us | StructoNova Pvt. Ltd.</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-page="contact">
+  <!-- A2. SHARED HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo-link" href="index.html" aria-label="StructoNova home">
+        <img src="assets/logo.png" alt="StructoNova Pvt. Ltd." class="site-logo">
+      </a>
+      <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="main-navigation" aria-label="Main navigation">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">About Us</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#clients">Clients</a>
+        <a class="active" href="contact.html">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- C1. CONTACT INTRODUCTION -->
+    <section class="contact-hero">
+      <div class="container contact-hero-inner">
+        <p class="section-label">Contact StructoNova</p>
+        <h1>Want to Know Your Structure? <em class="orange-text">Let’s Talk.</em></h1>
+        <p>Reach out for structural repair, rehabilitation, strengthening, corrosion protection, grouting, flooring, waterproofing or execution support.</p>
+      </div>
+    </section>
+
+    <!-- C2 TO C5. ENQUIRY FORM AND CONTACT DETAILS -->
+    <section class="contact-section">
+      <div class="container contact-main-layout">
+        <div class="contact-form-wrap">
+          <!-- C2. FORM INTRODUCTION -->
+          <h2>Send an Enquiry</h2>
+          <p class="contact-form-intro">Share a few basic details about your structure, repair requirement or project concern. We will review it and get back to you.</p>
+
+          <!-- C3 AND C4. FORM FIELDS AND SUBMISSION
+          Change the text inside a <label> to rename a field.
+          Keep matching label “for” and input “id” values unchanged.
+          -->
+          <form class="contact-form" action="https://formspree.io/f/xojzzwqa" method="POST">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel">
+
+            <label for="organisation">Company / Organisation Name</label>
+            <input id="organisation" name="organisation" type="text" autocomplete="organization">
+
+            <label for="industry">Name of Industry</label>
+            <input id="industry" name="industry" type="text" placeholder="Power, cement, real estate, transport, etc.">
+
+            <label for="project">Project / Structure Type</label>
+            <input id="project" name="project" type="text" placeholder="Building, plant, bridge, tank, flooring, etc.">
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+
+            <input type="hidden" name="_subject" value="New enquiry from StructoNova website">
+            <button class="button primary" type="submit">Submit Enquiry</button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <!-- C5. CONTACT DETAILS -->
+        <div class="contact-details-wrap">
+          <h2>Contact Details</h2>
+          <div class="contact-details">
+            <div class="contact-card">
+              <h3>Email</h3>
+              <a href="mailto:info@structonova.com">info@structonova.com</a>
+              <a href="mailto:projects@structonova.com">projects@structonova.com</a>
+            </div>
+            <div class="contact-card">
+              <h3>Phone</h3>
+              <a href="tel:+917069055250">+91 70690 55250</a>
+              <a href="tel:+918238043982">+91 82380 43982</a>
+            </div>
+            <div class="contact-card">
+              <h3>Location</h3>
+              <p>1324, 13th Floor, Maple Trade Centre, Sal Hospital Road, near Surdhara Circle, Thaltej, Ahmedabad, Gujarat 380052</p>
+              <a href="https://maps.app.goo.gl/MkwKdC5rLRKFQKk88" target="_blank" rel="noopener">Open in Google Maps</a>
+            </div>
+            <div class="contact-card">
+              <h3>LinkedIn</h3>
+              <a href="https://www.linkedin.com/in/aayush-upadhyay-83275a412/" target="_blank" rel="noopener">View LinkedIn Profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- A3. SHARED FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="StructoNova Pvt. Ltd." class="footer-logo">
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <a href="mailto:info@structonova.com">info@structonova.com</a>
+        <a href="mailto:projects@structonova.com">projects@structonova.com</a>
+        <a href="tel:+917069055250">+91 70690 55250</a>
+        <a href="tel:+918238043982">+91 82380 43982</a>
+      </div>
+      <div>
+        <h3>Office &amp; Links</h3>
+        <p>1324, 13th Floor, Maple Trade Centre, Sal Hospital Road, near Surdhara Circle, Thaltej, Ahmedabad, Gujarat 380052</p>
+        <a href="https://maps.app.goo.gl/MkwKdC5rLRKFQKk88" target="_blank" rel="noopener">Google Maps</a>
+        <a href="https://www.linkedin.com/in/aayush-upadhyay-83275a412/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">© 2026 StructoNova Pvt. Ltd. All rights reserved.</div>
+  </footer>
+
+  <!-- C6. CONTACT PAGE BEHAVIOUR -->
+  <script src="script.js"></script>
+</body>
+</html>
